@@ -1,6 +1,4 @@
 import React from "react";
-// import uuid from "uuid";
-// import axios from "axios";
 import PlayingCard from "./PlayingCard";
 import { useAxios } from "./hooks";
 import "./PlayingCardList.css";
