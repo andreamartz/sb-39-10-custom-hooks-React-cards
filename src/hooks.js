@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 import axios from "axios";
 
@@ -22,11 +22,11 @@ const useAxios = (baseUrl) => {
   const [cards, setCards] = useState([]);
   
   // after the first render (and whenever url changes), get data from API and add to cards
-  const addCard = async () => {
+  const addCard = async (ending='') => {
     try {
-      console.log("URL: ", baseUrl);
-      const res = await axios.get(baseUrl);
+      const res = await axios.get(`${baseUrl}${ending}`);
       setCards(cards => [...cards, { ...res.data, id: uuid() }]);
+
     } catch (err) {
       console.log(err);
     }
